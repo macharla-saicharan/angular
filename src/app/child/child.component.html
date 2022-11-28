@@ -1,0 +1,50 @@
+<h4 style="color:black">Child Component Data </h4>
+<div>
+
+    <p>This <span> ({{userName}})</span> is diplayed from the child component</p>
+
+</div>
+
+<!-- <div>
+    <table class="table table-bordered"  *ngIf ='cName'>
+
+        <thead>
+            <tr>
+                <th>Course Id</th>
+                <th>Course Name</th>
+            </tr>
+        </thead>
+        <tbody *ngFor ="let course of courses">
+            <tr>
+                <td *ngIf =" course.name == cName">{{course.id}}</td>
+                <td *ngIf =" course.name == cName">{{course.name}}</td>
+            </tr>
+        </tbody>   
+
+
+    </table>
+</div> -->
+<div>
+    <table class="table table-bordered border border-3 border-dark">
+
+        <thead>
+            <tr class="d-flex">
+                <th class="col-3">Course Id</th>
+                <th class="col-5">Course Name</th>
+                <th class="col-3">Registration</th>
+            </tr>
+        </thead>
+        <tbody *ngFor ="let course of courses">
+            <tr class="d-flex">
+                <td class="col-3">{{course.id}}</td>
+                <td class="col-5">{{course.name}}</td>
+                <td class="col-3"><button (click) = "registerEvent(course.name)" >Register</button></td>
+            </tr>
+        </tbody>   
+
+
+    </table>
+
+    
+    <button (click) = "shareData()">click </button>
+</div>

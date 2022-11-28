@@ -1,0 +1,32 @@
+<div>
+
+    <h4>Data Filtering without pipes</h4>
+    <div>
+        <label for="search">Filter</label> &nbsp;
+        <input type="text" name="search" id="search" 
+            style="margin: 10px 0px ; padding:5px 5px" 
+            placeholder="Filter by Gender" [(ngModel)] = "filterText">
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                   <th>Name</th>
+                   <th>Course</th>
+                   <th>Marks</th>
+                   <th>D.O.B</th>
+                   <th>Gender</th> 
+                </tr>
+            </thead>
+            <tbody *ngFor ="let student of filteredStudents">
+                <tr>
+                    <td>{{student.name}}</td>
+                    <td>{{student.course}}</td>
+                    <td>{{student.marks}}</td>
+                    <td>{{student.DOB | date : 'dd-MM-YYYY'}}</td>
+                    <td>{{student.gender}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

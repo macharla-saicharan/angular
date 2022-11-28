@@ -1,0 +1,23 @@
+<h4>Custom Directive File's Content</h4>
+<div class="csutomDirective">
+    <div>
+        <h5>Custom Directive Example-01</h5>
+        <p colorsChange>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, vel.</p>
+    </div><hr>
+    <div>
+        <h5>Custom Directive Example - 02</h5>
+        <p hoverEffect [style.padding] = ' "10px" '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus, eaque?</p>
+    </div>
+    <div>
+        <h5>Custom Directive Example - 03</h5>
+        <label for="myBtn">Enter the color </label>
+        <input type="text" id="myBtn" [(ngModel)] = 'color'>
+  &nbsp;<button [appButton] = "color">Click Me..</button>
+    </div><br><hr>
+    <!-- Custom Structural Directive -->
+    <div>
+        <div>
+            <p *Custngif="condn">This is the custom ng IF testing para.....</p>
+        </div>
+    </div>
+</div>

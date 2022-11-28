@@ -1,0 +1,9 @@
+img{
+    box-sizing: border-box;
+    width: 700px;
+    height: 320px;
+}
+
+.site-logan{
+    color: rgb(254, 250, 6);
+}

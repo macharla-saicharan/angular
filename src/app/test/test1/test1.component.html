@@ -1,0 +1,53 @@
+<!-- below is the concept of template reference variable -->
+<!-- In the input tag we declared a variable with #val , it has the all details of that input tag and can be used anywhere in the 
+template. -->
+<div class="container m-3">
+
+    
+    
+<!-- Usage of Property Binding -->
+    <div class="buttonUsage border border-dark py-3">
+        <h5>Property Binding</h5>
+        <button type="button" [disabled] = 'status' >My button</button><br><br>
+        <button type="button" disabled={{status}} >My button</button>
+    </div><hr>
+    
+<!-- Style Binding -->
+    <div>
+        <h5>Style Binding</h5>
+        <p [style.color]="isValid ? 'blue':'red'">Sample of the style binding</p>
+        <p [style]="isValid ? obj1:obj2">Lorem ipsum dolor sit amet consectet</p>
+    </div><hr>
+    
+
+<!-- Class Binding -->
+    <div>
+        <h5>Class Binding</h5>
+        <button [class.btn-success]="applyClass" [class.btn]="applyClass">Click Me!!</button>
+        <button [class]="applyClass ? 'btn btn-success mx-5' :'btn btn-primary mx-5'">Click Me!!</button>
+    </div><br><hr>
+<!-- Event Binding -->
+    <div>
+        <h5>Event Binding Eg-1</h5>
+        <!-- ($event) stores the data related to the event. we can check it using the console.log(). -->
+        <label for="search">Search : &nbsp;</label>
+        <input type="text"  id="search" (input) = 'searchVal($event)'><br>
+        <span>You are searching for : {{searchText}}</span> <br><hr>
+
+        <!-- Another example of event binding using template reference variable -->
+        <div>
+            <h5>Event Binding Eg-2</h5>
+            <label for="val">Enter the name: &nbsp;</label>
+            <input type="text"  id="val" #val (keyup)="display(val)">   
+            <p>Text entered is -- {{values}}</p>
+        </div><hr>
+    </div>
+
+<!-- Two Way Data Binding -->
+    <div>
+        <h4>Two Way Data Binding </h4>
+        <label for="city">Enter Your City :&nbsp;</label>
+        <input type="text" name="city" id="city" [(ngModel)] = "city">
+        <p>You are from {{city}} city.</p>
+    </div>
+</div>

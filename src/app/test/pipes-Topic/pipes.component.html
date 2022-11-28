@@ -1,0 +1,54 @@
+<div>
+    <div class="stringPipes">
+        <h5>string pipes</h5>
+        <p> saicharan | uppercase = {{ name | uppercase }} </p>
+        <p> {{'ANGULAR ' | lowercase}} (lowercase) </p>
+        <p> {{'hello sai charan' | titlecase}} (titlecase)</p>
+    </div><hr>
+
+    <div class="numberPipes">
+        <h5>Number pipes</h5>
+        <p> {{34 | currency  : 'MYSTR'}} </p>
+        <p> {{0.100067 | percent : '0.3-4'}}</p>
+        <p> {{date | date : 'medium'}}</p>
+        <!-- below code will be displayed as Jun 08 2022 -->
+        <p> JUN - {{ "6-8-2022" | date | uppercase | slice:0:1 }}</p>  
+    </div><hr>
+
+    <div class="customPipes">
+        <h5>Custom pipe</h5>
+        <p>{{userName | greet }}</p>
+    </div><hr>
+
+    <!-- {
+        "id": 1,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "city": "Gwenborough",
+          "zipcode": "92998-3874",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        }, -->
+    <div class="asyncss">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                   <th>userId</th>
+                   <th>status</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let user of users">
+                <tr>
+                    <td>{{user['username']}}</td>
+                    <td>{{user['email']}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

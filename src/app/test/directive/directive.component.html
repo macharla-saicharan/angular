@@ -1,0 +1,150 @@
+<!-- Directives are used to 
+        (1) Add/Remove the DOM elements from the browser
+        (2) Modifies the existing elements attributes etc., -->
+
+<!-- Directives are three types 
+        [1] Components
+        [3] Structural Directives 
+        [2] Attribute Directives  -->
+
+<!-- *** Structural Directives 
+            [1] *ngIf
+            [2] *ngFor
+            [3] *ngSwitch -->
+
+<!-- *** Attribute Directives
+            [1] [ngStyle] -->
+
+<div class="container my-3">
+    <div class="structural">
+        <!-- *ngIf -->
+        <div class="ngIf">
+
+            <div>
+                <h5 class="bg-warning">*ngIf Example</h5>
+                <label for="search">Search : &nbsp;</label>
+                <input type="text" id="search" [(ngModel)]="searchText"><br>
+                <span *ngIf=" searchText !== '' ">This para only appears when you type something</span>
+            </div><hr>
+
+            <div class="ngIf_else">
+                <h5 class="bg-warning">*ngIf with else Example</h5>
+                <p [(ngModel)]="searchText" *ngIf="searchText !== ''  ; else test ">{{searchText}}</p>
+                <ng-template #test>
+                    <p>This will appear when else block is executed i.e, as there is no value in the property this block
+                        was executed </p>
+                </ng-template>
+            </div>
+            <hr>
+            <div class="ngIf_then_else">
+                <h5 class="bg-warning">*ngIf with then & else blocks Example</h5>
+                <div>
+                    <label for="option">Enter the color : &nbsp; </label>
+                    <input type="text" id="option" (keydown.enter)="storeColor($event)"
+                        placeholder="press enter for changes">
+                </div>
+
+
+                <div>
+                    <p [(ngModel)]=color *ngIf=" color == ''  ; then normalPassage ; else coloredPassage "></p>
+                    <ng-template #normalPassage>
+                        <p [style.color]=color>This passage will change it's color acc to your input </p>
+                    </ng-template>
+                    <ng-template #coloredPassage>
+                        <p [style.color]=color>As you entered {{color}}, the passage is turned into {{color}} color..
+                        </p>
+                    </ng-template>
+                </div>
+
+                <p hidden>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt voluptatem, in tempore optio
+                    deserunt doloremque!</p>
+
+            </div>
+            <hr>
+        </div>
+                <!-- *****  ngFor ********* -->
+        <div class="ngFor">
+            <h5 class="bg-warning">*ngFor Examples</h5>
+            <div *ngFor ="let n of nums; let i = index; ">
+
+               <p> {{i}}st number of arr is {{n}}</p>
+
+               <!-- below code prints only even numbers from the array -->
+               <!-- <p *ngIf = "(n%2) == 0">{{n}}</p>    -->
+            </div><hr>
+            <!-- <ng-container *ngFor = "let n of nums">
+                <p>{{n}}</p>
+            </ng-container><hr> -->
+            <div class="2nd Example">
+                <ng-container >
+
+                    <table class="table table-bordered border-dark" >
+                        <thead class="table-primary border-dark" align="center" >
+                            <tr>
+                                <th>S.No</th>
+                                <th>Course Name</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor ="let x of courses" align="center" >
+                            <tr>
+                                <td>{{x.id}}</td>
+                                <td>{{x.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </ng-container>
+            </div>
+            <div>
+                <h4>list of books</h4>
+                <ul *ngFor = 'let book of books ;  index as i '>
+                    <li >
+                        ({{i}}) {{book.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="ngSwitch">
+            <h5 class="bg-warning">ngSwitch Examples</h5>
+
+            <label for="age">Enter course Id : </label>
+            <input type="number" name="age" id="age" (input) = "adulthood($event)" placeholder="Enter 1/2/3">
+            
+            <div [ngSwitch] = "age">
+               <p *ngSwitchCase="1 ">Javascript</p>
+               <p *ngSwitchCase="2">Typescript</p>
+               <p *ngSwitchCase="3"> Angular </p>
+               <p *ngSwitchDefault>invalid</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ********** ATTRIBUTE DIRECTIVES ********** -->
+    <div class="attribute">
+        <div class="ngStyle">
+            <h5 class="bg-warning">[ngStyle] example</h5>
+
+            <p>Enter a color in the text box</p>
+            <div>
+                <textarea name="bgcolor" id="" cols="15" rows="3" [(ngModel)] = "bgColor" [ngStyle] = " { 'background-color' : bgColor , color : 'red' } "></textarea>
+            </div>
+        </div><hr>
+        <div class="ngClass">
+            <div [ngClass] = "{ myClass:inputBar }">
+                <div>
+
+                    <label for="inputBar">type :</label>
+                    <input type="text" name="inputBar" id="inputBar" [(ngModel)] = "inputBar">
+                </div>
+            </div>
+        <div class="ngClass">
+            <div [ngClass] = "{ class1 : score < 3, class2 : score >= 3 }">
+                <div>
+
+                   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati, ullam.</p>
+                </div>
+            </div>
+        </div><br><hr>
+        
+    </div>
+</div>
